@@ -1,0 +1,16 @@
+# armstrong number
+
+n = 153
+digit = len(str(n))
+sum = 0
+copy_n = n
+
+while(n > 0):
+    r_m= n % 10
+    sum += r_m**digit
+    n = n // 10
+
+if copy_n == sum:
+    print("Armstrong Number ")
+else:
+    print("No its not")
