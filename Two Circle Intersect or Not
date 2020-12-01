@@ -1,0 +1,22 @@
+C1_x,C1_y,C1_r = map(float, input("Circle 1:").split()); # map is a very useful in-built function in Python https://docs.python.org/3/library/functions.html#map
+print(C1_x,C1_y,C1_r)
+
+
+
+C2_x,C2_y,C2_r = map(float, input("Circle 2:").split());
+print(C2_x,C2_y,C2_r)
+
+
+
+d_12 = math.sqrt( (C2_x-C1_x)**2 + (C2_y-C1_y)**2 );
+if d_12 == C1_r + C2_r:
+    print("One interesection")
+else:
+    print("NOT one interesection")
+        
+        
+        
+        
+        
+  *********************
+one intersection ...
