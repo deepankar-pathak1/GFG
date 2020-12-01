@@ -1,0 +1,54 @@
+# f(x) = sin(x)/x
+import math
+def f(x):
+    if x != 0:
+        return math.sin(x)/x;
+    else:
+        return math.nan;
+
+
+# return f'(x) = derivative of f(x) at x without computing the derivative explicitly
+def slopeF(x): 
+    delta = 0.0001;
+    
+    return (f(x+delta) - f(x))/delta ;
+
+print(slopeF(0)); # test-cases??
+    
+    
+    
+    
+    
+    
+*************************
+
+
+
+# same bisection-method code as earlier. Just change the f(x) to slopeF(x)
+import random
+
+# init
+x_l = -2;
+x_u = +2; 
+x = (x_u + x_l)/ 2;
+
+#iterate
+while ( True ): # Alwasys TRUE
+     
+    if math.isnan(slopeF(x)): # Fix NAN case with random pertubation of x.
+        x = x + random.random()/100;
+    
+    if abs(slopeF(x)) < 0.0001: # BREAK condition NOTE the less-than. [COMMON MISTAKE: >]
+        break;
+    
+    x = (x_u + x_l)/2 ; # middle point
+  
+    if slopeF(x) > 0: # adjust x_l
+        x_l = x;
+    else: # adjust x_u
+        x_u = x;
+ 
+        
+    print(slopeF(x), x_l, x_u)
+        
+print("x:" + str(x) + "\t slopeF(x): " + str(slopeF(x)))
