@@ -1,0 +1,45 @@
+You can only use the formula for area and circumference of a circle in terms of PI.
+
+
+Use concept of montey Carlo
+
+for triangle 
+
+ratio(1/2) = Number of points in triangle/Number of points in box
+
+
+
+
+
+
+
+# Area of square = 1
+# Area of circle = PI * 0.5^2 = PI/4
+
+# Refernce: https://en.wikipedia.org/wiki/Approximations_of_%CF%80 [Many many algorithms]
+
+# Lets now use randomization  [a.k.a Monte carlo simualtion]
+# Permutation-tets in HYpothesis tetsing in our AI Course is another example of Monte-Carlo simualtions
+
+import random
+import math
+
+def inCircle(x , y):
+    if  math.sqrt((x-0.5)**2 + (y-0.5)**2) <= 0.5:
+        return True;
+    else:
+        return False;
+
+
+cntInCircle = 0;
+n = 10000000;
+
+for i in range(n):
+    x = random.random();
+    y = random.random();
+    
+    if inCircle(x,y):
+        cntInCircle += 1;
+        
+print (cntInCircle/n * 4);
+    
