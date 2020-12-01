@@ -1,0 +1,44 @@
+Area under the curve
+
+
+Function is defined here
+
+import math
+def f(x):
+    if x !=0:
+        return math.sin(x)/x;
+    else:
+        return math.nan
+
+
+l = -10; # lower bound
+u = 10; # upper bound
+
+print(f(0))
+print(f(1))
+
+
+
+****************************
+
+This code is for area under the curve 
+Take absolute value of f(x) for correct result 
+
+
+
+x = -10;
+delta = 0.1; # smaller the better , but slower also
+area = 0;
+
+while (x <= 10):
+    print(area, x, f(x)); # print to ensure eveythign is working fine
+    
+    if x == 0: # we dont want to add NaN to the area [BOUNDARY CASE]
+        continue;
+        
+    area += f(x) * delta; # DO NOT messup indentation [COMMON-ERROR]
+    x += delta;
+        
+        
+        
+print("area:" + str(area));
